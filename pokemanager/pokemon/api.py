@@ -1,6 +1,6 @@
-from pokemon.models import Pokemon
+from pokemon.models import Pokemon, FavPoke
 from rest_framework import viewsets, permissions
-from .serializers import PokemonSerializer
+from .serializers import PokemonSerializer,favPokeSerializer
 
 # Pokemon Viewset
 
@@ -9,6 +9,7 @@ class PokemonViewSet(viewsets.ModelViewSet):
 
     permission_classes = [
         permissions.AllowAny
+        # permissions.IsAuthenticated
     ]
 
     serializer_class = PokemonSerializer
@@ -18,3 +19,9 @@ class PokemonViewSet(viewsets.ModelViewSet):
 
     # def perform_create(self, serializer):
     #     serializer.save(owner=self.request.user)
+
+
+class FavPokeViewSet(viewsets.ModelViewSet):
+    queryset = FavPoke.objects.all()
+    serializer_class = favPokeSerializer
+
