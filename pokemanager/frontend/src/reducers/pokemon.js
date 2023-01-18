@@ -1,5 +1,5 @@
 import { func } from "prop-types";
-import { DELETE_FAV, GET_FAV } from "../actions/types.js";
+import { ADD_FAV, DELETE_FAV, GET_FAV } from "../actions/types.js";
 
 const initialState = {
     pokemon: []
@@ -16,6 +16,11 @@ export default function(state = initialState, action){
             return {
                 ...state,
                 pokemon: state.pokemon.filter(pokemon => pokemon.id !== action.payload)
+            }
+        case ADD_FAV:
+            return {
+                ...state,
+                pokemon: [...state.pokemon, action.payload]
             }
         default:
             return state;

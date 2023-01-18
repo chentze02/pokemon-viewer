@@ -4,10 +4,10 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Pokemon(models.Model):
-    name = models.CharField(max_length=50)
-    email = models.EmailField(max_length=254, unique=True)
-    favourties = models.CharField(max_length=5000, blank=True)
+    name = models.CharField(max_length=50, unique=True)
+    image = models.CharField(max_length=500, unique=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
+    owner = models.ForeignKey(User, related_name="pokemons", on_delete=models.CASCADE, null=True)
 
 class FavPoke(models.Model):
     name = models.CharField(max_length=50)

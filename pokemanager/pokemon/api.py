@@ -5,20 +5,20 @@ from .serializers import PokemonSerializer,favPokeSerializer
 # Pokemon Viewset
 
 class PokemonViewSet(viewsets.ModelViewSet):
-    queryset = Pokemon.objects.all()
+    # queryset = Pokemon.objects.all()
 
     permission_classes = [
-        permissions.AllowAny
-        # permissions.IsAuthenticated
+        # permissions.AllowAny
+        permissions.IsAuthenticated
     ]
 
     serializer_class = PokemonSerializer
 
-    # def get_queryset(self):
-    #     return self.request.user.pokemon.all()
+    def get_queryset(self):
+        return self.request.user.pokemon.all()
 
-    # def perform_create(self, serializer):
-    #     serializer.save(owner=self.request.user)
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
 
 
 class FavPokeViewSet(viewsets.ModelViewSet):
