@@ -40,7 +40,7 @@ export const CardDisplay = props => {
     // const allFavPoke = dispatch(getFavouritePoke())
     // console.log(allFavPoke)
     const found = allFavPoke.pokemon.some(poke => poke.name === props.pokemon.name);
-    console.log(allFavPoke)
+    // console.log(allFavPoke)
     if(found){
       console.log("swap to true")
       setFavourited(true);

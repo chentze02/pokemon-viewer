@@ -15,7 +15,7 @@ class PokemonViewSet(viewsets.ModelViewSet):
     serializer_class = PokemonSerializer
 
     def get_queryset(self):
-        return self.request.user.pokemon.all()
+        return self.request.user.pokemons.all()
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)

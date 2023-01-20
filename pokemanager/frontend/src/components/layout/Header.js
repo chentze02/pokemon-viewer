@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -15,8 +14,13 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
+import { Link, Navigate } from 'react-router-dom';
+import React, {useCallback, useState} from 'react';
+import {useNavigate} from 'react-router-dom';
 
 const Search = styled('div')(({ theme }) => ({
+
+    
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
   backgroundColor: alpha(theme.palette.common.white, 0.15),
@@ -59,6 +63,10 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 //function starts here
 
 export default function Header({placeholder, handleChange}) {
+
+    const [favourite, setFav] = useState(false)
+    const navigate = useNavigate();
+  const handleOnClick = useCallback(() => navigate('/favourite', {replace: true}), [navigate]);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -99,8 +107,7 @@ export default function Header({placeholder, handleChange}) {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Favourites</MenuItem>
-      <MenuItem onClick={handleMenuClose}>Log Out</MenuItem>
+      <MenuItem onClick={handleOnClick}>Favourites</MenuItem>
     </Menu>
   );
 

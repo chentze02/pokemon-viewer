@@ -94,7 +94,6 @@ const Loader = () => {
           <Paper sx={{ backgroundImage: `url(https://external-preview.redd.it/z7_wYb9-YSvt0pDJlDIu8iuK_aWdqZPg0wvrGdwNvBw.png?width=640&crop=smart&auto=webp&s=e21f4d315bf85615ee6b0aa46461a28659fbd009)` }}>
               <CardList pokemons={fileteredPokemons}></CardList>
           </Paper>
-          <Favourite/>
         {/* </InfiniteScroll> */}
       </div>
     );

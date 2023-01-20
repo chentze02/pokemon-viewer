@@ -13,6 +13,7 @@ import {HashRouter as Router, Route, Routes} from "react-router-dom"
 import { LoginHeader } from "./layout/LoginHeader";
 import PrivateRoute from "./private/PrivateRoute";
 import { loadUser } from "../actions/auth";
+import Favourite from "./main/Favourite";
 
 const alertOptions = {
     timeout: 3000,
@@ -37,6 +38,7 @@ const App = () => {
                         <Routes>
                             <Route exact path="/" element={<PrivateRoute />}>
                                 <Route element={<PokeList />} path="/" exact/>
+                                <Route element={<Favourite/>} path="/favourite" exact/>
                             </Route>
                             <Route exact path="/register" element={<Register/>}/>
                             <Route exact path="/login" element={<Login/>}/>

@@ -10,6 +10,7 @@ import { Button, CardActionArea, CardActions } from '@mui/material';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
+import { Link} from 'react-router-dom';
 
 export class Favourite extends Component {
     static propTypes = {
@@ -24,7 +25,9 @@ export class Favourite extends Component {
     render() {
         return(
             <div>
-                 <h1>Favourite Pokemon List</h1>
+                <div style={{backgroundColor: "#0277bd", paddingBottom:10}} class="flex-container">
+                 <h1 style={{color:'#ffffff', backgroundColor: "#0277bd"}}>Favourite Pokemon List</h1>
+                 </div>
                 <Paper sx={{ backgroundImage: `url(https://external-preview.redd.it/z7_wYb9-YSvt0pDJlDIu8iuK_aWdqZPg0wvrGdwNvBw.png?width=640&crop=smart&auto=webp&s=e21f4d315bf85615ee6b0aa46461a28659fbd009)` }}>
                 <Box sx={{ flexGrow: 1 }}>
                 <Grid container spacing={{ xs: 2, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
